@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import axios from 'axios'
 
 class App extends Component {
+  async componentDidMount () {
+    const result = await axios.get('/api/test')
+    console.log(result)
+  }
   render() {
     return (
       <div className="App">
@@ -25,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

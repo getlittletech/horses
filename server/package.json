@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "koa": "^2.7.0",
     "koa-router": "^7.4.0"
   },
