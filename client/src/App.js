@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import styles from './App.css'
-import axios from 'axios'
+import { Provider } from 'react-redux'
+import store from './state/store'
 
-import GamesPage from './pages/GamesPage.js'
+import GamesPage from './pages/GamesPage'
 
 class App extends Component {
-  async componentDidMount() {
-    const result = await axios.get('/api/test')
-    console.log(result)
-  }
   render() {
     return (
-      <div className={styles.app}>
-        <GamesPage />
-      </div>
+      <Provider store={store}>
+        <div className={styles.app}>
+          <GamesPage />
+        </div>
+      </Provider>
     )
   }
 }
