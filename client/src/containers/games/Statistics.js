@@ -1,7 +1,5 @@
 import React from 'react'
 
 export default () => {
-    return (
-        <div>Stats</div>
-    )
+  return <div>Stats</div>
 }

@@ -5,7 +5,7 @@ import axios from 'axios'
 import GamesPage from './pages/GamesPage.js'
 
 class App extends Component {
-  async componentDidMount () {
+  async componentDidMount() {
     const result = await axios.get('/api/test')
     console.log(result)
   }
@@ -14,7 +14,7 @@ class App extends Component {
       <div className={styles.app}>
         <GamesPage />
       </div>
-    );
+    )
   }
 }
 

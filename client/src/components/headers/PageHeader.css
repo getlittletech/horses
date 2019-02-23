@@ -2,5 +2,5 @@
 @value colorMain, colorSecondary from colors;
 
 .header h1 {
-    color: colorMain; 
+  color: colorMain;
 }
