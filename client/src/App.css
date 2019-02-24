@@ -1,5 +1,9 @@
+@value colors: "./styles/colors.css";
+@value colorBackgroundLight from colors;
+
 html {
   box-sizing: border-box;
+  background-color: colorBackgroundLight;
 }
 *,
 *:before,

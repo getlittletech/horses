@@ -1,11 +1,11 @@
-import { call, put, take, takeEvery, cancel, cancelled } from 'redux-saga/effects'
+import { call, put, take, takeEvery, cancel, cancelled, delay } from 'redux-saga/effects'
 import { getGames } from '../../services/data'
 import { types, fetchGamesStarted, fetchGamesSucceeded, fetchGamesFailed } from '../actions/games'
 
 function* fetchGames(action) {
   try {
     yield put(fetchGamesStarted())
-    const games = yield call(getGames, action.typeString)
+    const games = yield call(getGames, action.gameType)
     yield put(fetchGamesSucceeded(games))
   } catch ({ message }) {
     yield put(fetchGamesFailed(message))

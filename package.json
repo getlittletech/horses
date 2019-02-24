@@ -10,7 +10,8 @@
     "postinstall": "(cd client && yarn install); (cd server && yarn install);",
     "start": "concurrently \"yarn server\" \"yarn client\"",
     "server": "node start-server.js",
-    "client": "node start-client.js"
+    "client": "node start-client.js",
+    "stop": "cd server && yarn stop"
   },
   "dependencies": {},
   "devDependencies": {

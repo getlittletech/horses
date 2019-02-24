@@ -6,9 +6,9 @@ export const types = {
   FETCH_GAMES_FAILED: 'FETCH_GAMES_FAILED',
 }
 
-export const fetchGamesButtonPressed = typeString => ({
+export const fetchGamesButtonPressed = gameType => ({
   type: types.FETCH_GAMES_BUTTON_PRESSED,
-  typeString,
+  gameType,
 })
 
 export const cancelFetchGamesButtonPressed = () => ({

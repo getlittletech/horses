@@ -4,19 +4,32 @@ import styles from './Form.css'
 import { fetchGamesButtonPressed, cancelFetchGamesButtonPressed } from '../../state/actions/games'
 
 export const Form = props => {
-  const [text, setText] = useState('')
+  const [game, setGame] = useState({ type: '' })
   return (
     <div className={styles.wrapper}>
-      <div className={styles.row}>
-        <label>Enter the name of the game and get information about it.</label>
-      </div>
-      <div className={styles.row}>
-        <label>Name of the game: </label>
-        <input type='text' onChange={value => setText(value)} />
-        <button onClick={() => props.onClick(text, props.isFetching)} className={styles.button}>
-          {props.isFetching ? 'Cancel' : 'Get results!'}
-        </button>
-      </div>
+      <form
+        onSubmit={event => {
+          event.preventDefault()
+          props.submit(game.type, props.isFetching)
+        }}
+      >
+        <div className={styles.row}>
+          <label>Enter the name of the game and get information about it.</label>
+        </div>
+        <div className={styles.row}>
+          <label>Name of the game: </label>
+          <input type='text' onChange={event => setGame({ type: event.target.value })} />
+          <button
+            onClick={event => {
+              event.preventDefault()
+              props.submit(game.type, props.isFetching)
+            }}
+            className={styles.button}
+          >
+            {props.isFetching ? 'Cancel' : 'Get results!'}
+          </button>
+        </div>
+      </form>
     </div>
   )
 }
@@ -29,12 +42,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: (text, isFetching) => {
+    submit: (gameType, isFetching) => {
       if (isFetching) {
         dispatch(cancelFetchGamesButtonPressed())
         return
       }
-      dispatch(fetchGamesButtonPressed(text))
+      dispatch(fetchGamesButtonPressed(gameType))
     },
   }
 }
