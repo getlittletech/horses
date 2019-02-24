@@ -1,0 +1,6 @@
+@value colors: "../styles/colors.css";
+@value colorMain, colorSecondary from colors;
+
+.wrapper {
+  background-color: colorBackgroundLight;
+}

@@ -12,6 +12,8 @@ const Statistics = ({ isFetching, error, games }) => {
     return <Error>{error}</Error>
   }
 
+  if (!games || games?.length < 1) return null
+
   return <div>Stats</div>
 }
 

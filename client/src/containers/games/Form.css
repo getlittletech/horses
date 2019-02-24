@@ -1,3 +1,30 @@
+@value colors: "../../styles/colors.css";
+@value colorAttention, colorText, colorWhite from colors;
+
 .wrapper {
-    composes: wrapper from "../../styles/styles.css";
-  }
+  composes: wrapper from '../../styles/styles.css';
+  color: colorText;
+}
+
+.wrapper label,
+.wrapper input {
+  color: colorText;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: 'flex-start';
+  align-items: 'center';
+  padding-bottom: 0.5rem;
+}
+
+.row label {
+  padding-right: 0.5rem;
+}
+
+.button {
+  padding: 0.25rem 0.5rem;
+  background-color: colorAttention;
+  color: colorWhite;
+}

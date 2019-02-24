@@ -2,5 +2,7 @@
 @value colorMain, colorSecondary from colors;
 
 .header h1 {
-  color: colorMain;
+  background-color: colorMain;
+  color: colorSecondary;
+  padding: 1rem;
 }

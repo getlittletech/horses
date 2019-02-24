@@ -7,11 +7,16 @@ export const Form = props => {
   const [text, setText] = useState('')
   return (
     <div className={styles.wrapper}>
-      <label>Please enter the name of the game:</label>
-      <input type='text' onChange={value => setText(value)} />
-      <button onClick={() => props.onClick(text, props.isFetching)}>
-        {props.isFetching ? 'Cancel' : 'Get results!'}
-      </button>
+      <div className={styles.row}>
+        <label>Enter the name of the game and get information about it.</label>
+      </div>
+      <div className={styles.row}>
+        <label>Name of the game: </label>
+        <input type='text' onChange={value => setText(value)} />
+        <button onClick={() => props.onClick(text, props.isFetching)} className={styles.button}>
+          {props.isFetching ? 'Cancel' : 'Get results!'}
+        </button>
+      </div>
     </div>
   )
 }
