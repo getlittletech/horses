@@ -1,20 +1,19 @@
 const Koa = require('koa')
 const router = require('koa-router')()
-const axios = require('axios')
+
+const racingInfo = require('./routes/racingInfo')
 
 function startServer() {
   const app = new Koa()
-  router.get('/', ctx => {
-    ctx.body = 'Hej!'
-  })
 
-  router.get('/api/test', async ctx => {
-    const result = await axios.get('https://www.atg.se/services/racinginfo/v1/api/products/V75')
-    ctx.body = result.data
-  })
+  router.get('/api/racinginfo', racingInfo.validate, racingInfo.handle)
+  router.get('/api/racinginfo/:gameType', racingInfo.validate, racingInfo.handle)
 
+  const port = 3001
   app.use(router.routes())
-  app.listen(3001)
+  app.listen(port)
+
+  console.log('Server started, listening to port: ', port)
 }
 
 startServer()
