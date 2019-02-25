@@ -30,11 +30,58 @@ const validate = async (ctx, next) => {
   }
 }
 
+const getClosest = (games, now) => {
+  let closest = games[0]
+  const closestDate = new Date(closest.startTime)
+  let minDiff = Math.abs(now.getTime() - closestDate.getTime())
+
+  games.forEach(game => {
+    const gameDate = new Date(game.startTime)
+    const diff = Math.abs(now.getTime() - gameDate.getTime())
+    if (diff < minDiff) {
+      closest = game
+      minDiff = diff
+    }
+  })
+
+  return closest
+}
+
 const handle = async ctx => {
   try {
-    const summaryUrl = 'https://www.atg.se/services/racinginfo/v1/api/products/' + ctx.params.gameType.toUpperCase()
-    const summary = await axios.get(summaryUrl)
-    ctx.body = summary.data
+    const gameType = ctx.params.gameType.toUpperCase()
+    const summaryUrl = 'https://www.atg.se/services/racinginfo/v1/api/products/' + gameType
+    const {
+      data: { upcoming, results },
+    } = await axios.get(summaryUrl)
+
+    let field = null
+    let closest = null
+
+    if (upcoming) {
+      closest = getClosest(upcoming, new Date())
+      field = 'upcoming'
+    } else if (results) {
+      closest = getClosest(results, new Date())
+      field = 'results'
+    }
+
+    const detailsUrl = 'https://www.atg.se/services/racinginfo/v1/api/games/' + closest.id
+    const {
+      data: { races },
+    } = await axios.get(detailsUrl)
+
+    if (!races) {
+      ctx.body = { message: 'No information available' }
+      return
+    }
+
+    ctx.body = {
+      id: closest.id,
+      gameType,
+      startTime: closest.startTime,
+      [field]: races,
+    }
   } catch (error) {
     ctx.throw(404, error)
   }

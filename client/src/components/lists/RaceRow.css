@@ -1,0 +1,32 @@
+@value colors: "../../styles/colors.css";
+@value colorLighter, colorTitles, colorBorders from colors;
+
+.head {
+  background-color: colorLighter;
+  color: colorTitles;
+  padding: 0.5rem;
+  font-weight: 900;
+  text-align: left;
+}
+
+.tableWrapper {
+  display: flex;
+}
+
+tr.labels {
+  border-bottom: 1px solid colorBorders;
+}
+
+th.labels {
+  text-align: left;
+  color: colorTitles;
+  font-weight: 500;
+  font-size: 0.75rem;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+}
+
+.item table {
+  border-collapse: collapse;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}

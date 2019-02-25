@@ -1,0 +1,13 @@
+@value colors: "../../styles/colors.css";
+@value colorLight, colorWhite from colors;
+
+.table {
+  border-collapse: collapse;
+  min-width: 60%;
+}
+.head {
+  background-color: colorLight;
+  color: colorWhite;
+  padding: 0.5rem;
+  font-weight: 900;
+}

@@ -1,5 +1,6 @@
 @value colorMain: #1d4f9a;
-@value colorMainLighter: #2967ac;
+@value colorLight: #457dad;
+@value colorLighter: #72a9d6;
 @value colorSecondary: #f6d74d;
 @value colorAttention: #4b982d;
 
@@ -10,3 +11,5 @@
 @value colorTitles: #1d4f9a;
 
 @value colorWhite: #ffffff;
+
+@value colorBorders: #c5d1dd;

@@ -1,0 +1,45 @@
+@value colors: "../../styles/colors.css";
+@value colorBorders, colorLight, colorTitles from colors;
+
+.row {
+  border-bottom: 1px solid colorBorders;
+  line-height: 2rem;
+}
+
+.item {
+  margin: 0.5rem 0;
+  padding: 0.25rem 0 0.25rem 0.25rem;
+}
+
+.horse {
+  color: colorTitles;
+  font-weight: 500;
+}
+
+.collapsed {
+  font-size: 0;
+  margin: 0;
+  height: 0;
+}
+
+.expanded {
+  height: 2rem;
+  border-bottom: 1px solid colorBorders;
+}
+
+.expanded div {
+  padding: 0.2rem;
+}
+
+.additionalHeader {
+  color: colorTitles;
+  font-weight: 500;
+}
+
+.arrowDown {
+  border: solid colorLight;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}

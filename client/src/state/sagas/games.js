@@ -1,4 +1,4 @@
-import { call, put, take, takeEvery, cancel, cancelled, delay } from 'redux-saga/effects'
+import { call, put, take, takeEvery, cancel, cancelled } from 'redux-saga/effects'
 import { getGames } from '../../services/data'
 import { types, fetchGamesStarted, fetchGamesSucceeded, fetchGamesFailed } from '../actions/games'
 

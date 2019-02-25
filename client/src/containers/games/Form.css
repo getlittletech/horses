@@ -4,6 +4,7 @@
 .wrapper {
   composes: wrapper from '../../styles/styles.css';
   color: colorText;
+  padding: 1rem;
 }
 
 .wrapper label,
