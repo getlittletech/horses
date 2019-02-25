@@ -1,0 +1,7 @@
+@value colors: "../../styles/colors.css";
+@value colorError from colors;
+
+.error {
+  color: colorError;
+  padding-left: 1rem;
+}
